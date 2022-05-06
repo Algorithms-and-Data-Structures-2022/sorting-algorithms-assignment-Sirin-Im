@@ -23,7 +23,7 @@ namespace assignment {
     // начало, конец и середина области поиска места для вставки [0, index - 1]
     int start = 0;
     int stop = index-1;
-    int middle = -1;
+    int middle = middle_of(start, stop);
 
     // ищем до тех пор, пока границы не схлопнулись
     while (start <= stop) {
@@ -46,7 +46,7 @@ namespace assignment {
       }
     }
     // в конечном счете возвращаем начало последней области поиска
-    return stop+1;
+    return start;
   }
 
   void InsertionSort::Sort(std::vector<int>& arr) const {
