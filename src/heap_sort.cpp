@@ -38,16 +38,17 @@ namespace assignment {
     assert(heap_size >= 0 && heap_size <= arr.size() && index >= 0 && index < heap_size);
 
     // максимальный элемент устанавливаем в значение текущего индекса
-    for (int largest = index; largest < heap_size; ){
+    int largest = index;
+    while (largest < heap_size){
       // вычисляем индексы потомков для текущего элемента
       const int left_child = LeftChild(index);
       const int right_child = RightChild(index);
 
       // поиск наибольшего элемента среди текущего элемента и его потомков ...
-      if (left_child < heap_size && arr[left_child]>arr[largest]) {
+      if (arr[left_child] > arr[largest] && left_child < heap_size) {
         largest = left_child;
       }
-      else if (right_child < heap_size && arr[right_child]>arr[largest]) {
+      if (arr[right_child] > arr[largest] && right_child < heap_size) {
         largest = right_child;
       }
 

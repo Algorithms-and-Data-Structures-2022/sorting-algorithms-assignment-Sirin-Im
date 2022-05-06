@@ -9,14 +9,13 @@ namespace assignment {
   int linear_search(const std::vector<int>& arr, int index) {
 
     // итерация всех предыдущих элементов [0, index - 1] (они находятся в отсортированном порядке)
-    for (int curr_pos = index-1 ;curr_pos >= 0; curr_pos--) {
-      if (arr[curr_pos] <= arr[index]) {
-        return curr_pos+1;
+    for (int curr_pos = 0 ;curr_pos < index; curr_pos++) {
+      if (arr[curr_pos] >= arr[index]) {
+        return curr_pos;
       }
       // если текущий элемент меньше или равен вставляемому, позиция для вставки найдена ...
     }
-
-    return 0;
+    return index;
   }
 
   int binary_search(const std::vector<int>& arr, int index) {
